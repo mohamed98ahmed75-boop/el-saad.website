@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+}
+body {
+    background-color: #000000;
+    color: #ffffff;
+    direction: rtl;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #efe7e7;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+nav a {
+    text-decoration: none;
+    color: #131313;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+nav a:hover {
+    color: #ff6600;
+}
+
+section {
+    padding: 20px;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 0;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 50px;
+}
+
+.image-container img {
+    width: 800px;
+    height: auto;    
+    object-fit: contain;
+    border-radius: 12px;
+   transition: transform 0.3s, ease;
+}
+.image-container img:hover {
+    transform: scale(1.05);
+}
+
+.likes {
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #0f0f0f;
+} 
+
+.image-card {
+background-color: #f7f3f3;
+border-radius: 12px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+overflow: hidden;
+margin: 20px auto;
+font-family: Arial, sans-serif;
+text-align: center;
+display: block;
+}
+.interaction-box {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    align-items: center;
+    gap: 15px;
+}
+.interaction-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #f8f3f3;
+}
+/* ترتيب العناصر داخل الصندوق بشكل أفقي ومتناسق */
+.reactions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* المسافة بين كل إيموجي والآخر */
+    margin-top: 15px;
+}
+/* تنسيق شكل الأزرار الشفافة */
+.reaction-btn {
+    background: none !important;
+    border: none !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
+    padding: 5px !important;
+    display: inline-block !important;
+}
+.reaction-btn:hover {
+    background-color: #eae2e2;
+    transform: scale(1.3);
+}
+/* تنسيق عداد الأرقام بجانب الإيموجي */
+.count {
+    font-size: 16px !important;
+    font-weight: bold !important;
+    color: #555 !important;
+    display: inline-block !important;
+}
+.video-container img {
+    width: 100%;          /* ملء العرض بالكامل */
+    height: 70vh;         /* ملء الارتفاع بالكامل */
+    object-fit: cover;
+    display: block;    /* تجعل الفيديو يملأ المساحة المتاحة بالكامل مع الحفاظ على الأبعاد */
+    margin: 0 auto;   /* توسيط الفيديو داخل الحاوية */
+    /* أو يمكنك استخدام الإعداد التالي إذا كنت لا تريد قص أي أجزاء من الفيديو */
+    /* object-fit: contain; */ 
+}
+
+/* تأكد أن الحاوية السوداء الخارجية تأخذ أبعاداً متناسقة */
+.video-container {
+    width: 100vh;
+    padding: 0;
+    max-width: 100%; 
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+    overflow: hidden; /* لمنع أي محتوى من الخروج عن الحاوية */
+    background-color: #000000; /* خلفية سوداء */
+}
+
+.header img, .header-bunner img, section >img {
+    height: auto;
+    object-fit: cover;
+}
+.main-larg-img {
+    width: 100%;
+    max-width: 450%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+    
+    @media (max-width: 768px) {
+.header {
+    flex-direction: row column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+nav a {
+    font-size: 14px;
+}
+}

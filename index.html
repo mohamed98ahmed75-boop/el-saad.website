@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مؤسسة السعد للطباخة</title>
+    <link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+    <header>
+             <img src="logo.jpg" alt="logo.jpg " style="width: 150px; height: auto;">
+
+        <nav>
+            <ul>
+                <li><a href="#reservation">الحجز</a></li>
+                <li><a href="#contact">التواصل</a></li>
+                <li><a href="#reviews">التقييمات</a></li>
+                <li><a href="#gallery">الصور</a></li>
+                <li><a href="#upload">رفع المحتوى</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<main style="text-align: center; padding: 20px 0px; clear: both; width: 100%;">
+    <h1 style="margin-top: 30px; color: #ffffff;">مؤسسة السعد للطباخة</h1>
+
+    <section id="video">
+        <h2> فيديو تعريفي للمؤسسة</h2>
+        <div class="video-container">
+            <img src="saad.gif" alt="صورة المؤسسة" style="max-width: 100%; height:auto;">
+        </div> 
+    </section>
+
+    <section id="about">
+        <h2>عن المؤسسة</h2>
+        <p>مؤسسة السعد للطباخة تقدم أفضل الأطباق التقليدية والمبتكرة. نحن نؤمن بأن الطعام هو تجربة يجب الاستمتاع بها.</p>
+    </section>
+
+
+    <section id="gallery" style="text-align: center; padding: 40px 20px; background-color: #000000;">
+        <h2 style="color:#ffffff;margin-bottom:20px;">صور من المؤسسة</h2>
+
+        <div class="image-container">
+
+          <img src="IMG-20260809-WA0006.jpg" alt="صورة 1">
+          <div class="photo-card" style="width:250px;">
+            <img src="logo.jpg" alt="صورة 1" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+           
+        <div class="interaction-box">
+          <div class="reactions">
+    <button class="reaction-btn" onclick="handleReaction('like', 1)">👍</button> <span class="count" id="count-like1">0</span>
+    <button class="reaction-btn" onclick="handleReaction('love', 1)">❤️</button> <span class="count" id="count-love1">0</span>
+    <button class="reaction-btn" onclick="handleReaction('fire', 1)">🔥</button> <span class="count" id="count-fire1">0</span>
+</div>
+        </div>
+ <div class="image-container">
+          <img src="IMG-20260809-WA0010.jpg" alt="صورة 1">
+          <div class="photo-card" style="width:250px;">
+            <img src="IMG-20260809-WA0010(1).jpg" alt="صورة 1" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+
+          <div class="reactions">
+    <button class="reaction-btn" onclick="handleReaction('like', 2)">👍</button> <span class="count" id="count-like2">0</span>
+    <button class="reaction-btn" onclick="handleReaction('love', 2)">❤️</button> <span class="count" id="count-love2">0</span>
+    <button class="reaction-btn" onclick="handleReaction('fire', 2)">🔥</button> <span class="count" id="count-fire2">0</span>
+       </div>
+          </div>
+
+          <img src="IMG-20260809-WA0011.jpg" alt="صورة 1">
+          <div class="photo-card" style="width:250px;">
+            <img src="IMG-20260809-WA0011.jpg" alt="صورة 1" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+
+          <div class="reactions">
+    <button class="reaction-btn" onclick="handleReaction('like', 3)">👍</button> <span class="count" id="count-like3">0</span>
+    <button class="reaction-btn" onclick="handleReaction('love', 3)">❤️</button> <span class="count" id="count-love3">0</span>
+    <button class="reaction-btn" onclick="handleReaction('fire', 3)">🔥</button> <span class="count" id="count-fire3">0</span>
+       </div>
+          </div>
+
+          <img src="IMG-20260809-WA0008.jpg" alt="صورة 1">
+          <div class="photo-card" style="width:250px;">
+            <img src="IMG-20260809-WA0008.jpg" alt="صورة 1" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+
+          <div class="reactions">
+    <button class="reaction-btn" onclick="handleReaction('like', 4)">👍</button> <span class="count" id="count-like4">0</span>
+    <button class="reaction-btn" onclick="handleReaction('love', 4)">❤️</button> <span class="count" id="count-love4">0</span>
+    <button class="reaction-btn" onclick="handleReaction('fire', 4)">🔥</button> <span class="count" id="count-fire4">0</span>
+
+    </div>
+               </div>
+           </div>
+
+          <img src="IMG-20260809-WA0009.jpg" alt="صورة 1">
+          <div class="photo-card" style="width:250px;">
+            <img src="IMG-20260809-WA0009.jpg" alt="صورة 1" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+
+          <div class="reactions">
+    <button class="reaction-btn" onclick="handleReaction('like', 5)">👍</button> <span class="count" id="count-like5">0</span>
+    <button class="reaction-btn" onclick="handleReaction('love', 5)">❤️</button> <span class="count" id="count-love5">0</span>
+    <button class="reaction-btn" onclick="handleReaction('fire', 5)">🔥</button> <span class="count" id="count-fire5">0</span>
+</div>
+          </div>
+
+          <img src="IMG-20260809-WA0012.jpg" alt="صورة 1">
+          <div class="photo-card" style="width:250px;">
+            <img src="IMG-20260809-WA0012.jpg" alt="صورة 1" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+
+          <div class="reactions">
+    <button class="reaction-btn" onclick="handleReaction('like', 6)">👍</button> <span class="count" id="count-like6">0</span>
+    <button class="reaction-btn" onclick="handleReaction('love', 6)">❤️</button> <span class="count" id="count-love6">0</span>
+    <button class="reaction-btn" onclick="handleReaction('fire', 6)">🔥</button> <span class="count" id="count-fire6">0</span>
+</div>
+            </div>
+    
+          <img src="IMG-20260809-WA0013.jpg" alt="صورة 1">
+          <div class="photo-card" style="width:250px;">
+            <img src="IMG-20260809-WA0013.jpg" alt="صورة 1" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+
+          <div class="reactions">
+    <button class="reaction-btn" onclick="handleReaction('like', 7)">👍</button> <span class="count" id="count-like7">0</span>
+    <button class="reaction-btn" onclick="handleReaction('love', 7)">❤️</button> <span class="count" id="count-love7">0</span>
+    <button class="reaction-btn" onclick="handleReaction('fire', 7)">🔥</button> <span class="count" id="count-fire7">0</span>
+</div>    
+            </div>
+        
+          <img src="IMG-20260809-WA0014.jpg" alt="صورة 1">
+          <div class="photo-card" style="width:250px;">
+            <img src="IMG-20260809-WA0014.jpg" alt="صورة 1" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+
+          <div class="reactions">
+    <button class="reaction-btn" onclick="handleReaction('like', 8)">👍</button> <span class="count" id="count-like8">0</span>
+    <button class="reaction-btn" onclick="handleReaction('love', 8)">❤️</button> <span class="count" id="count-love8">0</span>
+    <button class="reaction-btn" onclick="handleReaction('fire', 8)">🔥</button> <span class="count" id="count-fire8">0</span>
+</div>        
+          </div>
+
+    </section>
+
+    <section id="reservation">
+        <h2>استمارة الحجز</h2>
+        <form id="reservationForm" autocomplete="off">
+            <label for="name">الاسم:</label>
+            <input type="text" id="name" required autocomplete="off">
+            <label for="date">التاريخ:</label>
+            <input type="date" id="date" required autocomplete="off">
+            <label for="time">الوقت:</label>
+            <input type="time" id="time" required autocomplete="off">
+            <button type="submit">احجز الآن</button>
+        </form>
+    </section>
+
+    <section id="contact">
+        <h2>التواصل معنا</h2>
+        <p>للتواصل عبر الواتس اب: <a href="01153968844">اضغط هنا</a></p>
+        <p>أو عبر البريد الإلكتروني: <a href="mailto:hwarryamr@gmail.com">hwarryamr@gmail.com</a></p>
+    </section>
+
+    <section id="reviews">
+        <h2>التقييمات</h2>
+        <form id="reviewForm" autocomplete="off">
+            <label for="review">اكتب تقييمك:</label>
+            <textarea id="review" required autocomplete="off"></textarea>
+            <button type="submit">أرسل تقييمك</button>
+        </form>
+        <div id="reviewList"></div>
+    </section>
+
+    
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026 مؤسسة السعد للطباخة</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
