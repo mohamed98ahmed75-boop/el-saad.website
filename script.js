@@ -48,36 +48,38 @@ if (reviewForm) {
 
 // ==================== 3. دالة التفاعلات المرتبطة بالإيميل والعداد ====================
 function handleReaction(type, cardId) {
-    console.log(تفاعل جديد [${type}] على رقم الكارت [${cardId}]);
+    console.log(`تفاعل جديد [${type}] على رقم الكارت [${cardId}]`);
 
     // --- الجزء الخاص بزيادة العداد على الشاشة فوراً ---
-    const counterElement = document.getElementById(counter-${type}-${cardId});
+    const counterElement = document.getElementById(`counter-${type}-${cardId}`);
     if (counterElement) {
         let currentCount = parseInt(counterElement.textContent) || 0;
         counterElement.textContent = currentCount + 1;
     }
-    // ------------------------------------------------
 
-    // إرسال إشعار التفاعل فوراً إلى بريدك الإلكتروني برمجياً //
-    fetch('https://web3forms.com', { 
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-            access_key: "90743679-98ea-4a8e-bced-19f4cafeeb0d", 
-            subject: "تفاعل جديد من موقعك",
-            message: قام أحد الزوار بالتفاعل بـ [${type}] على الكارت رقم [${cardId}]
-        })
+    
+fetch('https://web3forms.com', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+        access_key: "90743679-98ea-48be-bced-19f4cafeeb0d",
+        subject: "إشعار جديد من موقعك",
+        message: `قام أحد الزوار بالالتغاط على الكارت رقم ${cardId} من نوع ${type}`
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            console.log('تم إرسال التفاعل للإيميل بنجاح');
-        }
-    })
-    .catch(error => {
-        console.error('خطأ في إرسال التفاعل:', error);
-    });
+})
+.then(response => response.json())
+.then(data => {
+    if (data.success) {
+        console.log("تم إرسال الإشعار بنجاح إلى بريدك الإلكتروني!", data);
+        alert("تم الإرسال بنجاح!"); // يمكنك إظهار رسالة نجاح للمستخدم هنا
+    } else {
+        console.error("فشل إرسال الإشعار:", data.message);
+    }
+})
+.catch(error => {
+    console.error("حدث خطأ في الشبكة أثناء الإرسال:", error);
+});
 }
