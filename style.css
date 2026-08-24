@@ -168,12 +168,79 @@ display: block;
     
     @media (max-width: 768px) {
 .header {
-    flex-direction: row column;
+    flex-direction:  column;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
 }
+.booking-form {
+    padding: 15px;
+}
 nav a {
     font-size: 14px;
+}
+/* تنسيق هيكل الفورم وتوسطه في الشاشة */
+.booking-form {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #111111; /* خلفية داكنة تميز الفورم عن الصفحة */
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #222222;
+    text-align: right; /* محاذاة النص لليمين ليناسب اللغة العربية */
+    direction: rtl;    /* توجيه العناصر من اليمين إلى اليسار */
+}
+
+/* تنسيق المجموعات والحقول */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a1a1a;
+    border: 10px solid #333333;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+/* تأثير عند الضغط على حقول الإدخال */
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: #ffcc00; /* تغيير الإطار للون ذهبي جذاب عند الكتابة */
+    outline: none;
+}
+
+/* تنسيق زر الإرسال */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #ffcc00; /* زر بلون ذهبي واضح */
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: #e5b800;
+    transform: scale(1.02); /* تأثير تكبير خفيف عند تمرير الماوس */
 }
 }

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
+      <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مؤسسة السعد للطباخة</title>
     <link rel="stylesheet" href="style.css?v=6">
+    <meta name="vewport" content="width=devise-width, initial-scale=1.0">
 </head>
 <body>
     <header>
@@ -135,19 +136,41 @@
 
     </section>
 
-    <section id="reservation">
-        <h2>استمارة الحجز</h2>
-        <form id="reservationForm" autocomplete="off">
-            <label for="name">الاسم:</label>
-            <input type="text" id="name" required autocomplete="off">
-            <label for="date">التاريخ:</label>
-            <input type="date" id="date" required autocomplete="off">
-            <label for="time">الوقت:</label>
-            <input type="time" id="time" required autocomplete="off">
-            <button type="submit">احجز الآن</button>
-        </form>
-    </section>
+<section id="reservation" style="text-align: center; padding: 60px 20px; background-color: #000000;">
+    <h2 style="color: #ffffff; margin-bottom: 15px; font-size: 28px;">حجز الولائم والمناسبات</h2>
+    <p style="color: #cccccc; margin-bottom: 40px; font-size: 16px;">يرجى ملء البيانات التالية لتأكيد حجزك وسنتواصل معك فوراً</p>
 
+    <!-- نموذج الحجز المرتبط بالإيميل -->
+<form id="reservationForm" class="booking-form">        
+        <!-- ⚠️ ضع المفتاح الرقمي المجاني الخاص بك من موقع Web3Forms هنا -->
+        <input type="hidden" name="access_key" value="90743679-98ea-4a8e-bced-19f4cafeeb0d">
+        
+        <!-- عنوان الإيميل الذي سيصلك -->
+        <input type="hidden" name="subject" value="طلب حجز جديد من الموقع الإلكتروني 🍽️">
+
+        <div class="form-group">
+            <label>الاسم الكريم:</label>
+            <input type="text" name="الاسم" placeholder="أدخل اسمك بالكامل" required>
+        </div>
+
+        <div class="form-group">
+            <label>رقم الجوال:</label>
+            <input type="tel" name="الهاتف" placeholder="05xxxxxxxxx" required>
+        </div>
+
+        <div class="form-group">
+            <label>تاريخ المناسبة:</label>
+            <input type="date" name="التاريخ" required>
+        </div>
+
+        <div class="form-group">
+            <label>نوع المناسبة / تفاصيل إضافية:</label>
+            <textarea name="التفاصيل" rows="4" placeholder="مثال: عشاء عمل، حفل زواج، عدد الحضور المتوقع..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">تأكيد طلب الحجز</button>
+    </form>
+</section>
     <section id="contact">
         <h2>التواصل معنا</h2>
         <p>للتواصل عبر الواتس اب: <a href="01153968844">اضغط هنا</a></p>
@@ -169,6 +192,6 @@
         <p>جميع الحقوق محفوظة &copy; 2026 مؤسسة السعد للطباخة</p>
     </footer>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
