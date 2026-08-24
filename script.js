@@ -46,28 +46,38 @@ if (reviewForm) {
     });
 }
 
-// ==================== 3. دالة التفاعلات المرتبطة بالإيميل ====================
+// ==================== 3. دالة التفاعلات المرتبطة بالإيميل والعداد ====================
 function handleReaction(type, cardId) {
-    console.log(تفاعل جديد: ${type} على الكارت رقم ${cardId});
+    console.log(تفاعل جديد [${type}] على رقم الكارت [${cardId}]);
 
-    // إرسال إشعار التفاعل فوراً إلى بريدك الإلكتروني برمجياً
-    fetch('https://web3forms.com', {
+    // --- الجزء الخاص بزيادة العداد على الشاشة فوراً ---
+    const counterElement = document.getElementById(counter-${type}-${cardId});
+    if (counterElement) {
+        let currentCount = parseInt(counterElement.textContent) || 0;
+        counterElement.textContent = currentCount + 1;
+    }
+    // ------------------------------------------------
+
+    // إرسال إشعار التفاعل فوراً إلى بريدك الإلكتروني برمجياً //
+    fetch('https://web3forms.com', { 
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         },
         body: JSON.stringify({
-            access_key: "90743679-98ea-4a8e-bced-19f4cafeeb0d", // 👈 الرقم السري الخاص بك محفوظ هنا الآن
-            subject: 🔥 تفاعل جديد في موقعك!,
+            access_key: "90743679-98ea-4a8e-bced-19f4cafeeb0d", 
+            subject: "تفاعل جديد من موقعك",
             message: قام أحد الزوار بالتفاعل بـ [${type}] على الكارت رقم [${cardId}]
         })
     })
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            console.log('تم إرسال التفاعل للإيميل بنجاح.');
+            console.log('تم إرسال التفاعل للإيميل بنجاح');
         }
     })
-    .catch(error => console.error('خطأ في إرسال التفاعل:', error));
+    .catch(error => {
+        console.error('خطأ في إرسال التفاعل:', error);
+    });
 }
