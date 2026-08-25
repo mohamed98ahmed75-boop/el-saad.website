@@ -58,7 +58,7 @@ function handleReaction(type, cardId) {
     }
 
     
-fetch('https://web3forms.com', {
+fetch('https://web3forms.com/submit', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
