@@ -6,26 +6,28 @@ if (reservationForm) {
         event.preventDefault(); // منع ظهور البيانات في الشريط العلوي ومنع الخطأ 405
         
         const formData = new FormData(reservationForm);
-        
-        fetch('https://web3forms.com', {
+// 1. قراءة البيانات وتحويلها لصيغة تفهمها الخدمة
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        // 2. إرسال البيانات للرابط الصحيح
+        fetch('https://api.web3forms.com/submit', {
             method: 'POST',
-            body: formData
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
         })
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert("🎉 تم إرسال طلب الحجز بنجاح إلى البريد الإلكتروني! وسنتواصل معك فوراً.");
-                reservationForm.reset(); // تفريغ الخانات بعد النجاح
+                alert("تم طلب الحجز بنجاح إلى البريد الإلكتروني وسنتواصل معك فوراً 🎉");
+                reservationForm.reset(); // تفريغ الحقول بعد النجاح
             } else {
                 alert("حدث خطأ أثناء الإرسال: " + data.message);
             }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert("🎉 تم إرسال الطلب بنجاح! يرجى التحقق من بريدك الإلكتروني.");
-        });
-    });
-}
+        })}
 
 // ==================== 2. كود إضافة الآراء والتقييمات بالأسفل ====================
 const reviewForm = document.getElementById('reviewForm');
