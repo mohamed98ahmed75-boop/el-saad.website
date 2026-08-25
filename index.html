@@ -142,9 +142,6 @@
 
     <!-- نموذج الحجز المرتبط بالإيميل -->
 <form id="reservationForm" class="booking-form">        
-        
-        <!-- عنوان الإيميل الذي سيصلك -->
-        <input type="hidden" name="subject" value="طلب حجز جديد من الموقع الإلكتروني 🍽️">
 
         <div class="form-group">
             <label>اسم الكريم:</label>
@@ -166,7 +163,7 @@
             <textarea name="التفاصيل" rows="4" placeholder="مثال: عشاء عمل، حفل زواج، عدد الحضور المتوقع..."></textarea>
         </div>
 
-        <button type="submit" class="submit-btn">تأكيد طلب الحجز</button>
+        <button type="button" class="submit-btn" onclick="sendbooking()">تأكيد طلب الحجز</button>
     </form>
 </section>
     <section id="contact">
@@ -190,6 +187,36 @@
         <p>جميع الحقوق محفوظة &copy; 2026 مؤسسة السعد للطباخة</p>
     </footer>
 
-<script src="script.js"></script>
+
+<script>
+function sendbooking() {
+    const reservationForm = document.querySelector('form');
+    if (!reservationForm) return;
+
+    const formData = new FormData(reservationForm);
+    
+    // حقن مفتاح الوصول المفعّل لإيميلك الشخصي
+    formData.append('access_key', '8cfbfbf2-9ee0-4244-a228-10ae28099c11');
+    formData.append('subject', 'طلب حجز جديد ومؤكد من الموقع');
+
+fetch('https://web3forms.com', {
+                method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("تم طلب الحجز بنجاح إلى البريد الإلكتروني وسنتواصل معك فوراً 🎉");
+            reservationForm.reset(); 
+        } else {
+            alert("حدث خطأ أثناء الإرسال: " + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert("حدث خطأ في الشبكة! يرجى التحقق من اتصال الإنترنت.");
+    });
+}
+</script>
 </body>
 </html>
