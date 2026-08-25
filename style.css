@@ -9,11 +9,10 @@ body {
     direction: rtl;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
-    margin-right: auto;
-    margin-left: auto;
     width: 100%;
-    max-width: 1200px;
+  margin: 0;
     padding: 0;
+
 }
 
 header {
@@ -60,7 +59,7 @@ section {
 }
 
 .image-container img {
-    width: 800px;
+    width: 500px;
     height: auto;    
     object-fit: contain;
     border-radius: 12px;
