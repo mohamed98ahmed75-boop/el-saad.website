@@ -63,7 +63,7 @@ section {
 }
 
 .image-container img {
-    width: 600px;
+    width: 500px;
     height: auto;    
     object-fit: contain;
     border-radius: 12px;
