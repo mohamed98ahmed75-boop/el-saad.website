@@ -65,7 +65,7 @@ fetch('https://web3forms.com/submit', {
         'Accept': 'application/json'
     },
     body: JSON.stringify({
-        access_key: "294e133f-1631-43aa-b039-9e528792b5d4",
+        access_key: "8cbfbbf2-9ee0-4244-a228-10ae28099c11",
         subject: "إشعار جديد من موقعك",
         message: `قام أحد الزوار بالالتغاط على الكارت رقم ${cardId} من نوع ${type}`
     })
