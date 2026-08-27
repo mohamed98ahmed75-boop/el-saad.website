@@ -1,7 +1,7 @@
 let reactionCounts = {
-    like: [0, 0, 0, 0, 0, 0, 0, 0],
-    love: [0, 0, 0, 0, 0, 0, 0, 0],
-    fire: [0, 0, 0, 0, 0, 0, 0, 0]
+    like: [0, 0],
+    love: [0, 0],
+    fire: [0, 0]
 };
 
 function handleReaction(type, index) {
@@ -16,7 +16,6 @@ function handleReaction(type, index) {
         document.getElementById(`count-fire${index}`).innerText = reactionCounts.fire[index - 1];
     }
 }
-
 function sendbooking() {
     const reservationForm = document.querySelector('#reservationForm');
     if (!reservationForm) return;
