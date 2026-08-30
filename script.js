@@ -1,59 +1,55 @@
-let reactionCounts = {
-    like: [0, 0],
-    love: [0, 0],
-    fire: [0, 0]
+
+
+// 1. إعدادات الاتصال بقاعدة بيانات Firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyAMstotLC9qpsq-OfHkaSpEibhE4xzGt_g",
+    authDomain: "al-saad-cooking-establishment.firebaseapp.com",
+    databaseURL: "https://al-saad-cooking-establishment-default-rtdb.firebaseio.com",
+    projectId: "al-saad-cooking-establishment",
+    storageBucket: "al-saad-cooking-establishment.firebasestorage.app",
+    messagingSenderId: "1094372596337",
+    appId: "1:1094372596337:web:7f89dc1ae7344e221f59d0",
+    measurementId: "G-0J78XY0P0G"
 };
 
-function handleReaction(type, index) {
-    if (type === 'like') {
-        reactionCounts.like[index - 1]++;
-        document.getElementById(`count-like${index}`).innerText = reactionCounts.like[index - 1];
-    } else if (type === 'love') {
-        reactionCounts.love[index - 1]++;
-        document.getElementById(`count-love${index}`).innerText = reactionCounts.love[index - 1];
-    } else if (type === 'fire') {
-        reactionCounts.fire[index - 1]++;
-        document.getElementById(`count-fire${index}`).innerText = reactionCounts.fire[index - 1];
-    }
-}
-function sendbooking() {
-    const reservationForm = document.querySelector('#reservationForm');
-    if (!reservationForm) return;
+// 2. تفعيل الاتصال بـ Firebase وقاعدة البيانات
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
 
-    const formData = new FormData(reservationForm);
-    formData.append('access_key', '8cfbfbf2-9ee0-4244-a228-10ae28099c11');
-    formData.append('subject', 'طلب حجز جديد ومؤكد من الموقع');
-
-    fetch('https://web3forms.com', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert("تم طلب الحجز بنجاح إلى البريد الإلكتروني وسنتواصل معك فوراً 🎉");
-            reservationForm.reset();
-        } else {
-            alert("حدث خطأ أثناء الإرسال: " + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert("حدث خطأ في الشبكة! يرجى التحقق من اتصال الإنترنت.");
-    });
-}
-
-document.getElementById('bookingForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // منع إعادة تحميل الصفحة عند الإرسال
-
-    // التقاط القيم من النموذج
-    const name = document.getElementById('name').value;
-        const date = document.getElementById('date').value;
-        const newReview = document.createElement('div');
-        newReview.textContent = reviewText;
-        reviewList.appendChild(newReview);
-        document.getElementById('review').value = ''; // مسح حقل التقييم
+window.handleReaction=function (type, id) {
+    // تركيب الـ id ليتطابق مع المكتوب في الـ HTML (مثال: count-like8 أو count-love7)
+    // تحويل نوع التفاعل إلى حروف صغيرة (.toLowerCase) ليتوافق مع تسمياتك
+    const elementId = `count-${type.toLowerCase()}${id}`;
+    
+    // جلب عنصر العداد من الصفحة
+    const countElement = document.getElementById(elementId);
+    
+    if (countElement) {
+        // قراءة الرقم الحالي وتحويله بأمان إلى عدد صحيح
+        let currentCount = parseInt(countElement.innerText) || 0;
+        
+        // زيادة العداد بمقدار 1
+        currentCount++;
+        
+        // تحديث الرقم الظاهر في الصفحة
+        countElement.innerText = currentCount;
     } else {
-        alert("يرجى كتابة تقييم قبل الإرسال.");
+        console.error(`لم يتم العثور على عنصر بالمعرف: ${elementId}`);
     }
-});
+}
+// تشغيل دالة الجلب تلقائياً عند تحميل الصفحة
+document.addEventListener("DOMContentLoaded", loadReactions);
+
+// 4. دالة إدارة التفاعلات وإرسالها لقاعدة البيانات عند الضغط على الأزرار
+function handleReaction(type, id) {
+    const elementId = `count-${type.toLowerCase()}${id}`;
+    const countElement = document.getElementById(elementId);
+    
+    if (countElement) {
+        let currentCount = parseInt(countElement.innerText) || 0;
+        let newCount = currentCount + 1;
+        database.ref('reactions/' + elementId).set(newCount);
+    } else {
+        console.error(`لم يتم العثور على عنصر بالمعرف: ${elementId}`);
+    }
+}

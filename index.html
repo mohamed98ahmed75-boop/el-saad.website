@@ -5,6 +5,7 @@
       <link rel="icon" href="favicon-package.zip" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مؤسسة السعد للطباخة</title>
+    <meta name="google-site-verification" content="AZ5ovEszZzY9Lq8CGOGe6X7aRtcweQHeNLuLiDEVvC4" />
     <link rel="stylesheet" href="style.css?v=6">
     <meta name="vewport" content="width=devise-width, initial-scale=1.0">
 </head>
@@ -142,7 +143,7 @@
     <p style="color: #cccccc; margin-bottom: 40px; font-size: 16px;">يرجى ملء البيانات التالية لتأكيد حجزك وسنتواصل معك فوراً</p>
 
     <!-- نموذج الحجز المرتبط بالإيميل -->
-<form id="reservationForm" class="booking-form">        
+<form id="bookingForm" class="booking-form">        
 
         <div class="form-group">
             <label>اسم الكريم:</label>
@@ -164,7 +165,7 @@
             <textarea name="التفاصيل" rows="4" placeholder="مثال: عشاء عمل، حفل زواج، عدد الحضور المتوقع..."></textarea>
         </div>
 
-        <button type="button" class="submit-btn" onclick="sendbooking()">تأكيد طلب الحجز</button>
+        <button type="submit" class="submit-btn" onclick="sendbooking()">تأكيد طلب الحجز</button>
     </form>
 </section>
     <section id="contact">
@@ -180,42 +181,15 @@
         </form>
         <div id="reviewList"></div>
     </section>
-
-    
     <footer>
         <p>جميع الحقوق محفوظة &copy; 2026 مؤسسة السعد للطباخة</p>
     </footer>
 
+<!-- استدعاء أساس Firebase المكتمل -->
+<script src="https://gstatic.com"></script>
 
-<script>
-function sendbooking() {
-    const reservationForm = document.querySelector('form');
-    if (!reservationForm) return;
+<!-- استدعاء قاعدة بيانات Firebase المكتمل -->
+<script src="https://gstatic.com"></script>
 
-    const formData = new FormData(reservationForm);
-    
-    // حقن مفتاح الوصول المفعّل لإيميلك الشخصي
-    formData.append('access_key', '8cfbfbf2-9ee0-4244-a228-10ae28099c11');
-    formData.append('subject', 'طلب حجز جديد ومؤكد من الموقع');
-
-fetch('https://web3forms.com', {
-                method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert("تم طلب الحجز بنجاح إلى البريد الإلكتروني وسنتواصل معك فوراً 🎉");
-            reservationForm.reset(); 
-        } else {
-            alert("حدث خطأ أثناء الإرسال: " + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert("حدث خطأ في الشبكة! يرجى التحقق من اتصال الإنترنت.");
-    });
-}
-</script>
-</body>
-</html>
+<!-- ملفك البرمجي الخاص -->
+<
