@@ -43,12 +43,12 @@ function sendbooking() {
     });
 }
 
-document.getElementById('reviewForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const reviewText = document.getElementById('review').value;
-    
-    if (reviewText) {
-        const reviewList = document.getElementById('reviewList');
+document.getElementById('bookingForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // منع إعادة تحميل الصفحة عند الإرسال
+
+    // التقاط القيم من النموذج
+    const name = document.getElementById('name').value;
+        const date = document.getElementById('date').value;
         const newReview = document.createElement('div');
         newReview.textContent = reviewText;
         reviewList.appendChild(newReview);
